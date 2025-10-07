@@ -405,15 +405,6 @@
             .site-nav { margin-top: 15px; }
             .site-nav a { margin: 0 10px; }
         }
-
-        /* Efeito de texto interativo */
-        .hero-content h1 {
-            cursor: default;
-        }
-        .movable-letter {
-            display: inline-block;
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
     </style>
 </head>
 <body>
@@ -586,61 +577,5 @@
     </footer>
 
     <?php wp_footer(); ?>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const heroTitle = document.querySelector('.hero-content h1');
-        if (heroTitle) {
-            const text = heroTitle.textContent;
-            heroTitle.innerHTML = ''; // Limpa o conteúdo original
-
-            text.split('').forEach(letter => {
-                const span = document.createElement('span');
-                span.textContent = letter;
-                span.className = 'movable-letter';
-                if (letter.trim() === '') {
-                    span.innerHTML = '&nbsp;';
-                }
-                heroTitle.appendChild(span);
-            });
-
-            const heroSection = document.querySelector('.hero');
-
-            heroSection.addEventListener('mousemove', function(e) {
-                const rect = heroSection.getBoundingClientRect();
-                const mouseX = e.clientX - rect.left;
-                const mouseY = e.clientY - rect.top;
-
-                Array.from(heroTitle.children).forEach(letterSpan => {
-                    const letterRect = letterSpan.getBoundingClientRect();
-                    const letterCenterX = (letterRect.left - rect.left) + letterRect.width / 2;
-                    const letterCenterY = (letterRect.top - rect.top) + letterRect.height / 2;
-
-                    const deltaX = mouseX - letterCenterX;
-                    const deltaY = mouseY - letterCenterY;
-
-                    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                    const maxDistance = 150;
-
-                    if (distance < maxDistance) {
-                        const force = 1 - (distance / maxDistance);
-                        const moveX = (deltaX / distance) * force * -25;
-                        const moveY = (deltaY / distance) * force * -25;
-                        
-                        letterSpan.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                    } else {
-                        letterSpan.style.transform = 'translate(0,0)';
-                    }
-                });
-            });
-
-            heroSection.addEventListener('mouseleave', function() {
-                Array.from(heroTitle.children).forEach(letterSpan => {
-                    letterSpan.style.transform = 'translate(0,0)';
-                });
-            });
-        }
-    });
-    </script>
 </body>
 </html>
