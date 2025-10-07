@@ -147,7 +147,7 @@
             font-weight: 750;
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
             transition: all 0.3s ease;
             display: inline-block;
             border: none;
@@ -155,8 +155,8 @@
 
         .cta-button:hover {
             background-color: var(--cor-destaque);
-            transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
         }
         
         /* 6. SEÇÃO DE ESTATÍSTICAS (NOVO) */
@@ -168,7 +168,7 @@
             margin-top: 0; /* Removido o margin-top negativo */
             position: relative;
             z-index: 50;
-            box-shadow: var(--sombra-suave);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
         }
 
         .stats-grid {
@@ -224,6 +224,13 @@
         .diferencial-item {
             flex: 1;
             padding: 20px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .diferencial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-suave);
         }
         
         .diferencial-item i {
@@ -237,6 +244,11 @@
             font-size: 1.1em;
             font-weight: 750;
             margin: 0 0 5px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .diferencial-item:hover h4 {
+            transform: translateY(-3px);
         }
         
         .diferencial-item p {
@@ -263,7 +275,7 @@
         .servico-card {
             background: #FFFFFF;
             border-radius: 12px;
-            box-shadow: var(--sombra-suave);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             width: 300px; /* Largura fixa para consistência */
             display: flex;
@@ -272,7 +284,7 @@
 
         .servico-card:hover {
             transform: translateY(-7px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
         }
 
         .servico-card img {
@@ -292,6 +304,11 @@
         .servico-info h3 {
             font-size: 1.4em;
             margin: 0 0 10px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .servico-card:hover .servico-info h3 {
+            transform: translateY(-3px);
         }
         
         .servico-info p {
