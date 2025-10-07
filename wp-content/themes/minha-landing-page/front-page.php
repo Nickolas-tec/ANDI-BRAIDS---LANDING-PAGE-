@@ -394,8 +394,7 @@
     
     <header class="site-header">
         <div class="container header-content">
-            <a href="<?php echo home_url(); ?>" class="site-logo">ANDI - BRAI
-                DS</a>
+            <a href="<?php echo home_url(); ?>" class="site-logo">ANDI - BRAIDS</a>
         </div>
     </header>
 
