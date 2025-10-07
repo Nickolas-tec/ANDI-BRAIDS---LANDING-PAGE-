@@ -75,9 +75,7 @@
             background-color: rgba(var(--cor-fundo-rgb), 0.95);
             backdrop-filter: blur(5px);
             padding: 10px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: static;
             border-bottom: 1px solid rgba(var(--cor-destaque), 0.2);
             box-shadow: var(--sombra-leve);
         }
